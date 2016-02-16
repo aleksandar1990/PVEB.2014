@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+  data=$('#form2').serialize()+'&picture=../image/kurac.jpg';
+    $.post("jquery/serialize.php",
+    /*{
+      fname: $('#fname').val(),
+	  lname: $('#lname').val(),
+    },*/
+	data,
+    function(data,status){
+      alert("Ime i prezime: " + data + "\nStatus: " + status);
+    });
+  });
+});
+</script>
+</head>
+<body>
+
+ <form id="form2">
+  First name: <input type="text" id="fname" name="fname"><br>
+  Last name: <input type="text" id="lname" name="lname"><br>
+  <input type="submit" id="button" value="Submit">
+</form> 
+
+<button>Send an HTTP POST request to a page and get the result back</button>
+
+</body>
+</html>
